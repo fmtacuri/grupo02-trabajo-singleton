@@ -4,6 +4,7 @@ import static org.springframework.http.HttpStatus.OK;
 
 import com.grupo02.entity.CalificacionEntity;
 import com.grupo02.service.CalificacionService;
+import javax.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -22,7 +23,7 @@ public class CalificacionController {
   CalificacionService calificacionService;
 
   @PostMapping("/print-instace")
-  ResponseEntity<Object> saveCalificacion(@RequestBody CalificacionEntity calificacion) {
+  ResponseEntity<Object> saveCalificacion(@Valid @RequestBody CalificacionEntity calificacion) {
     CalificacionEntity response = calificacionService.registrarCalificaciones(
         calificacion.getNombre(), calificacion.getCalificacion());
     response.setInstance(calificacionService.toString());

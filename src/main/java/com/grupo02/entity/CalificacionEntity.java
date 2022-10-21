@@ -1,5 +1,6 @@
 package com.grupo02.entity;
 
+import javax.validation.constraints.Max;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +16,7 @@ import lombok.experimental.FieldDefaults;
 public class CalificacionEntity {
 
   String nombre;
+  @Max(100)
   double calificacion;
   String instance;
 }
